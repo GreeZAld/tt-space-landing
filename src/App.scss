@@ -1,0 +1,639 @@
+@import "_variables";
+@import "_fonts";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.main {
+    min-height: 100vh;
+    background: linear-gradient(#0d1e48, #304571);
+    font-family: "Lato Bold";
+
+    .header {
+        height: 80px;
+        background-color: $black;
+        display: flex;
+        justify-content: space-between;
+        color: $white;
+        font-size: 18px;
+
+        @media (max-width: $tablet-breakpoint) {
+            padding: 0 20px;
+            height: 48px;
+        }
+
+        @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+            padding: 0 30px;
+        }
+
+        @media (min-width: $desktop-breakpoint) {
+            padding: 0 80px;
+        }
+
+        .header__logo {
+            display: flex;
+            align-items: center;
+
+            .header__logo-img {
+                @media (max-width: $desktop-breakpoint) {
+                    height: 24px;
+                    width: 24px;
+                }
+
+                @media (min-width: $desktop-breakpoint) {
+                    height: 35px;
+                    width: 35px;
+                }
+            }
+
+            .header__logo-text {
+                margin-left: 5px;
+
+                @media (max-width: $desktop-breakpoint) {
+                    height: 17px;
+                }
+
+                @media (min-width: $desktop-breakpoint) {
+                    height: 25px;
+                }
+            }
+        }
+
+        .header__nav--desktop {
+            display: flex;
+            align-self: center;
+
+            @media (max-width: $tablet-breakpoint) {
+                display: none;
+            }
+
+            @media (min-width: $tablet-breakpoint) {
+                display: flex;
+            }
+
+            button {
+                background-color: unset;
+                border: none;
+                color: $white;
+                cursor: pointer;
+                font-family: "Lato Bold";
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 22px;
+
+                &:not(:last-child) {
+                    margin-right: 25px;
+                    padding-right: 2rem;
+                }
+
+                svg {
+                    fill: white;
+                }
+
+                &:hover {
+                    background: linear-gradient(
+                        98.25deg,
+                        $yellow 18.56%,
+                        $pink 76.02%
+                    );
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+
+                    svg {
+                        fill: url(#customGradient);
+                    }
+                }
+            }
+        }
+
+        .header__nav--mobile {
+            position: relative;
+            width: 100%;
+            background-color: $black;
+
+            @media (max-width: $tablet-breakpoint) {
+                display: block;
+                padding: 15px;
+            }
+            @media (min-width: $tablet-breakpoint) {
+                display: none;
+            }
+        }
+
+        .menu-icon {
+            display: block;
+            width: 30px;
+            height: min-content;
+            top: 15px;
+            left: 15px;
+            cursor: pointer;
+            z-index: 1;
+            margin: 0 0 0 auto;
+
+            span {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: $white;
+                transition: all 0.3s ease-in-out;
+
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+        #menu-toggle {
+            display: none;
+
+            &:checked + .menu-icon span:nth-of-type(1) {
+                transform: rotate(45deg) translate(7px, 3px);
+            }
+
+            &:checked + .menu-icon span:nth-of-type(2) {
+                opacity: 0;
+            }
+
+            &:checked + .menu-icon span:nth-of-type(3) {
+                transform: rotate(-45deg) translate(8px, -5px);
+            }
+
+            &:checked ~ .menu {
+                max-height: 100vh;
+                width: 100%;
+                position: fixed;
+                left: 0;
+            }
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 0;
+            overflow: hidden;
+            background-color: $black;
+
+            li {
+                border-bottom: 1px solid $white;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                a {
+                    display: block;
+                    padding: 15px;
+                    color: $white;
+                    text-decoration: none;
+                    text-align: center;
+                    transition: background-color 0.3s ease-in-out;
+
+                    &:hover {
+                        background-color: grey;
+                    }
+
+                    .cart-icon {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .banner {
+        background-image: url("./assets/planet.png"),
+            url("./assets/banner-bg.png");
+        background-size: auto, cover;
+        background-repeat: no-repeat, no-repeat;
+        font-family: "Lato Extra Bold";
+        font-weight: 800;
+
+        @media (max-width: $tablet-breakpoint) {
+            background-image: $overlay, url("./assets/planet.png"),
+                url("./assets/banner-bg.png");
+            background-size: 100%, auto, cover;
+            background-position-y: top, calc(100% - 175px), top;
+            background-position-x: center, calc(100% + 20px), center;
+            padding: 250px 30px 45px;
+            min-height: 450px;
+            text-align: center;
+        }
+
+        @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+            background-position-x: center, calc(100% + 115px), 0;
+            padding: 0 30px;
+            min-height: 420px;
+        }
+
+        @media (min-width: $desktop-breakpoint) {
+            padding: 0 80px;
+            min-height: 490px;
+            background-position: center right, top left;
+        }
+
+        .banner__title {
+            color: $white;
+
+            margin-bottom: 20px;
+
+            .banner__title--highlighted {
+                color: $pink;
+            }
+
+            @media (max-width: $tablet-breakpoint) {
+                font-size: 36px;
+                line-height: 36px;
+            }
+
+            @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                width: 400px;
+                font-size: 48px;
+                line-height: 48px;
+                padding-top: 100px;
+            }
+
+            @media (min-width: $desktop-breakpoint) {
+                font-size: 72px;
+                line-height: 72px;
+                width: 700px;
+                padding-top: 90px;
+            }
+        }
+
+        .banner__subtitle {
+            color: $white;
+
+            .banner__subtitle--highlighted {
+                color: $yellow;
+            }
+
+            @media (max-width: $tablet-breakpoint) {
+                font-size: 16px;
+                line-height: 19px;
+            }
+
+            @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                font-size: 22px;
+                line-height: 26px;
+            }
+
+            @media (min-width: $desktop-breakpoint) {
+                font-size: 32px;
+                line-height: 38px;
+            }
+        }
+
+        .banner__button {
+            color: $black;
+            background-color: $yellow;
+            border-radius: 100px;
+            border: none;
+            margin-top: 20px;
+            font-family: "Lato Bold";
+            font-weight: 700;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.6;
+            }
+
+            @media (max-width: $tablet-breakpoint) {
+                padding: 7px 40px;
+                font-size: 16px;
+                line-height: 19px;
+            }
+
+            @media (min-width: $tablet-breakpoint) {
+                padding: 14px 40px;
+                font-size: 22px;
+                line-height: 26px;
+            }
+        }
+    }
+
+    .offers {
+        color: $white;
+
+        @media (max-width: $tablet-breakpoint) {
+            padding: 50px 20px;
+        }
+
+        @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+            padding: 55px 30px;
+        }
+
+        @media (min-width: $desktop-breakpoint) {
+            padding: 60px 80px;
+        }
+
+        .offers__header {
+            font-family: "Lato Extra Bold";
+            font-weight: 800;
+
+            @media (max-width: $tablet-breakpoint) {
+                font-size: 18px;
+                line-height: 22px;
+            }
+
+            @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                font-size: 24px;
+                line-height: 29px;
+            }
+
+            @media (min-width: $desktop-breakpoint) {
+                font-size: 32px;
+                line-height: 38px;
+            }
+        }
+
+        .offers__container {
+            display: flex;
+            flex-wrap: wrap;
+
+            @media (max-width: $tablet-breakpoint) {
+                gap: 30px;
+                margin-top: 30px;
+            }
+
+            @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                gap: 30px;
+                margin-top: 30px;
+            }
+
+            @media (min-width: $desktop-breakpoint) {
+                gap: 40px;
+                margin-top: 40px;
+            }
+
+            .offer {
+                color: white;
+                box-sizing: border-box;
+                border-radius: 10px;
+                background-size: cover;
+                background-position: center center;
+
+                @media (max-width: $tablet-breakpoint) {
+                    flex: 1 1 100%;
+                    padding: 100px 25px 35px 25px;
+                }
+
+                @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                    flex: 1 1 calc(50% - 30px);
+                    padding: 105px 25px 25px 25px;
+                    height: 350px;
+                }
+
+                @media (min-width: $desktop-breakpoint) {
+                    height: 350px;
+                    padding: 35px;
+                    flex: 1 1 calc(50% - 40px);
+                }
+
+                .offer__title {
+                    font-family: "Lato Extra Bold";
+                    font-weight: 800;
+                    margin-bottom: 20px;
+
+                    @media (max-width: $desktop-breakpoint) {
+                        font-size: 40px;
+                        line-height: 40px;
+                        width: 85%;
+                    }
+                    @media (min-width: $desktop-breakpoint) {
+                        font-size: 46px;
+                        line-height: 46px;
+                        width: 60%;
+                    }
+                }
+
+                .offer__subtitle {
+                    color: $white;
+                    margin-bottom: 20px;
+
+                    @media (max-width: $desktop-breakpoint) {
+                        font-size: 16px;
+                        line-height: 19px;
+
+                        .offer__subtitle--long {
+                            display: none;
+                        }
+                    }
+                    @media (min-width: $desktop-breakpoint) {
+                        font-size: 24px;
+                        line-height: 28px;
+                    }
+                }
+
+                &:nth-child(1),
+                &:nth-child(4) {
+                    .offer__title {
+                        @media (min-width: $desktop-breakpoint) {
+                            font-size: 74px;
+                            line-height: 74px;
+                            width: 60%;
+                        }
+                    }
+
+                    .offer__subtitle {
+                        @media (min-width: $desktop-breakpoint) {
+                            font-size: 26px;
+                            line-height: 30px;
+                        }
+                    }
+
+                    @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                        flex: 1 1 calc(50% - 30px);
+                    }
+
+                    @media (min-width: $desktop-breakpoint) {
+                        flex: 1 1 100%;
+                    }
+                }
+
+                &:nth-child(1) {
+                    // JPG was used here and below to keep look as close as possible to figma
+                    // PNG exported from Figma were also considered but appeared to have bad resolution and smaller scale and it caused obvious differences between designs and actual page look
+                    background-image: $overlay, url("./assets/offer-1-bg.jpg");
+                }
+
+                &:nth-child(2) {
+                    background-image: $overlay, url("./assets/offer-2-bg.jpg");
+                    padding-top: 50px;
+                }
+
+                &:nth-child(3) {
+                    background-image: $overlay, url("./assets/offer-3-bg.jpg");
+                    padding-top: 50px;
+                }
+
+                &:nth-child(2),
+                &:nth-child(3) {
+                    @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                        padding: 105px 25px 25px 25px;
+                    }
+
+                    @media (min-width: $desktop-breakpoint) {
+                        padding-top: 50px;
+                    }
+                }
+
+                &:nth-child(4) {
+                    background-image: $overlay, url("./assets/offer-4-bg.jpg");
+                }
+
+                .offer__button {
+                    background-color: transparent;
+                    color: $yellow;
+                    border-radius: 100px;
+                    border: 2px solid $yellow;
+                    font-family: "Lato Bold";
+                    font-weight: 700;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+
+                    @media (max-width: $desktop-breakpoint) {
+                        font-size: 16px;
+                        line-height: 19px;
+                        padding: 7px 40px;
+                    }
+
+                    @media (min-width: $desktop-breakpoint) {
+                        font-size: 22px;
+                        padding: 14px 40px;
+                    }
+                }
+            }
+        }
+    }
+
+    .text {
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (max-width: $tablet-breakpoint) {
+            padding: 0 20px;
+            height: 300px;
+        }
+
+        @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+            padding: 0 30px;
+            height: 215px;
+        }
+
+        @media (min-width: $desktop-breakpoint) {
+            padding: 0 80px;
+            height: 240px;
+        }
+
+        .text__header {
+            font-family: "Lato Extra Bold";
+            font-weight: 800;
+
+            @media (max-width: $tablet-breakpoint) {
+                font-size: 18px;
+                line-height: 22px;
+            }
+
+            @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                font-size: 24px;
+                line-height: 29px;
+            }
+
+            @media (min-width: $desktop-breakpoint) {
+                font-size: 32px;
+                line-height: 38px;
+            }
+        }
+
+        .text__content {
+            font-family: "Lato Bold";
+            font-weight: 700;
+            opacity: 0.6;
+
+            @media (max-width: $tablet-breakpoint) {
+                font-size: 14px;
+                line-height: 17px;
+            }
+
+            @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                font-size: 16px;
+                line-height: 19px;
+            }
+
+            @media (min-width: $desktop-breakpoint) {
+                font-size: 20px;
+                line-height: 24px;
+            }
+        }
+
+        .text__link {
+            text-decoration: none;
+            color: $yellow;
+            font-family: "Lato Bold";
+            font-weight: 800;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.6;
+            }
+
+            @media (max-width: $tablet-breakpoint) {
+                font-size: 14px;
+                line-height: 17px;
+            }
+
+            @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+                font-size: 16px;
+                line-height: 19px;
+            }
+
+            @media (min-width: $desktop-breakpoint) {
+                font-size: 20px;
+                line-height: 24px;
+            }
+        }
+    }
+
+    .footer {
+        height: 125px;
+
+        background-color: $black;
+        text-align: center;
+
+        @media (max-width: $tablet-breakpoint) {
+            margin-top: 50px;
+        }
+
+        @media (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+            margin-top: 55px;
+        }
+
+        @media (min-width: $desktop-breakpoint) {
+            margin-top: 60px;
+        }
+
+        .footer__text {
+            color: $yellow;
+            font-size: 18px;
+            line-height: 28px;
+            font-family: "Lato Extra Bold";
+            font-weight: 800;
+        }
+    }
+}
