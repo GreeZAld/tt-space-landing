@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/tt-space-landing/static/css/main.73c5a5f3.css",
+    "main.js": "/tt-space-landing/static/js/main.ea0f59ed.js",
+    "static/js/453.ed3810f9.chunk.js": "/tt-space-landing/static/js/453.ed3810f9.chunk.js",
+    "static/media/banner-bg.png": "/tt-space-landing/static/media/banner-bg.71039811c8577077c344.png",
+    "static/media/rocket.svg": "/tt-space-landing/static/media/rocket.a4389852c90b9d43571cac86eea0e8ab.svg",
+    "static/media/planet.png": "/tt-space-landing/static/media/planet.301325ec1763cf77087f.png",
+    "static/media/offer-2-bg.jpg": "/tt-space-landing/static/media/offer-2-bg.be3231e48d12d52a5555.jpg",
+    "static/media/offer-3-bg.jpg": "/tt-space-landing/static/media/offer-3-bg.87715424e86f803d0062.jpg",
+    "static/media/offer-4-bg.jpg": "/tt-space-landing/static/media/offer-4-bg.88e027f751493b299667.jpg",
+    "static/media/offer-1-bg.jpg": "/tt-space-landing/static/media/offer-1-bg.03dd788b7d2496e6e5cc.jpg",
+    "static/media/Lato-Bold.ttf": "/tt-space-landing/static/media/Lato-Bold.636be8de934918e38ed9.ttf",
+    "static/media/Lato-Black.ttf": "/tt-space-landing/static/media/Lato-Black.57dee8aface5572f9101.ttf",
+    "static/media/text.svg": "/tt-space-landing/static/media/text.6280a3954ecb02c0bf67dc9125f93945.svg",
+    "static/media/logo.svg": "/tt-space-landing/static/media/logo.0381c7e4a5fadc2c710e05053713bb30.svg",
+    "index.html": "/tt-space-landing/index.html",
+    "main.73c5a5f3.css.map": "/tt-space-landing/static/css/main.73c5a5f3.css.map",
+    "main.ea0f59ed.js.map": "/tt-space-landing/static/js/main.ea0f59ed.js.map",
+    "453.ed3810f9.chunk.js.map": "/tt-space-landing/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73c5a5f3.css",
+    "static/js/main.ea0f59ed.js"
+  ]
+}
